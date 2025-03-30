@@ -10,7 +10,7 @@ const Navbar = () => {
         {/* LOGO */}
         <div className='flex items-center gap-4 text-2xl font-bold'>
             <img src="/logo.png" className='w-8 h-8' alt="logo img" />
-            <span>lamalog</span>
+            <span>DailyBlog</span>
         </div>
         {/* MOBILE MENUE */}
         <div className='md:hidden' >
