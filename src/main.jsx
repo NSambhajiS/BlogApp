@@ -9,6 +9,9 @@ import Register from './pages/Register'
 import SinglePost from './pages/SinglePost'
 import Write from './pages/Write'
 import MainLayout from './layouts/MainLayout'
+import { ClerkProvider } from '@clerk/clerk-react'
+
+const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
 
 const router = createBrowserRouter([
   // We will always keep seeing navbar above each page bz of thid page layout
@@ -26,6 +29,8 @@ const router = createBrowserRouter([
 const root=ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
+      <RouterProvider router={router} />
+    </ClerkProvider>
   </StrictMode>,
 );
