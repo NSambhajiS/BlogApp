@@ -1,11 +1,31 @@
 import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
-import App from './App.jsx'
+import { createBrowserRouter,RouterProvider } from 'react-router-dom'
+import Home from './pages/Home'
+import Login from './pages/Login'       
+import PostList from './pages/PostList'
+import Register from './pages/Register'
+import SinglePost from './pages/SinglePost'
+import Write from './pages/Write'
+import MainLayout from './layouts/MainLayout'
+
+const router = createBrowserRouter([
+  // We will always keep seeing navbar above each page bz of thid page layout
+  {element: <MainLayout/>,
+  children:[
+    {path: "/", element: <Home/>},
+    {path: "/login", element: <Login/>},
+    {path: "/posts", element: <PostList/>},
+    {path: "/register", element: <Register/>},
+    {path: "/:slug", element: <SinglePost/>},
+    {path: "/write", element: <Write/>},
+  ]}
+])
 
 const root=ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </StrictMode>,
 );
